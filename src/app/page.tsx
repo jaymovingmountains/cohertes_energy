@@ -12,7 +12,7 @@ import { Orbitron } from 'next/font/google'
 
 const orbitron = Orbitron({ subsets: ['latin'] })
 
-export default function home() {
+export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -40,7 +40,7 @@ export default function home() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [])  // Empty dependency array, we'll handle sectionRefs differently
 
   const scrollToSection = (sectionId: string) => {
     sectionRefs[sectionId as keyof typeof sectionRefs].current?.scrollIntoView({ behavior: 'smooth' })
